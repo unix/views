@@ -10,8 +10,6 @@
     "@types/node": "^13.9.0"
   },
   "dependencies": {
-    "aws-sdk": "^2.637.0",
-    "hashids": "^2.2.1",
-    "r2": "^2.0.1"
+    "aws-sdk": "^2.637.0"
   }
 }

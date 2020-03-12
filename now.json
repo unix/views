@@ -5,6 +5,25 @@
     {
       "source": ".js",
       "destination": "/index.html"
+    },
+    {
+      "source": "/svg",
+      "destination": "/api/views"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/views",
+      "headers" : [
+        {
+          "key" : "Content-Type",
+          "value" : "image/svg+xml"
+        },
+        {
+          "key" : "Cache-Control",
+          "value" : "public, max-age=0, must-revalidate"
+        }
+      ]
     }
   ],
   "env": {
