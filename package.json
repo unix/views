@@ -1,0 +1,16 @@
+{
+  "name": "views-show",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "update": "node scripts/update.js"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^8.1.0",
+    "@types/node": "^13.9.0",
+    "aws-sdk": "^2.638.0",
+    "fs-extra": "^8.1.0",
+    "js-yaml": "^3.13.1"
+  }
+}

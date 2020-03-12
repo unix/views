@@ -1,0 +1,26 @@
+name: Publish
+
+on:
+  push:
+    tags:
+      - '*'
+    branches:
+      - 'master'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: checkout
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      - name: install
+        run: yarn install --check-files --frozen-lockfile
+      - name: update
+        run: yarn update
+        env:
+          AWS_ACCESS_ID: ${{secrets.aws_access_id}}
+          AWS_ACCESS_SECRET_KEY: ${{secrets.aws_access_secret_key}}
