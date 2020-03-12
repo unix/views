@@ -2,6 +2,8 @@
 
 Show page views without server.
 
+[中文文档](./README_CN.md)
+
 <br/>
 
 ### What is
@@ -9,6 +11,7 @@ Show page views without server.
   - Display page views dynamically now
   - No server required
   - No install required
+  - Free, just use
 
 <br/>
 
