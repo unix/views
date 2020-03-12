@@ -1,0 +1,17 @@
+{
+  "name": "views",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:unix/views.git",
+  "author": "unix <unix.bio@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@now/node": "^1.4.2-canary.1",
+    "@types/node": "^13.9.0"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.637.0",
+    "hashids": "^2.2.1",
+    "r2": "^2.0.1"
+  }
+}
