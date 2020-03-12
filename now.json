@@ -1,0 +1,14 @@
+{
+  "regions": ["hnd1"],
+  "public": false,
+  "rewrites": [
+    {
+      "source": ".js",
+      "destination": "/index.html"
+    }
+  ],
+  "env": {
+    "AWS_ACCESS_ID": "@views-aws-access-id",
+    "AWS_ACCESS_SECRET_KEY": "@views-aws-secret-key"
+  }
+}
