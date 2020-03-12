@@ -10,7 +10,9 @@ Show page views without server.
   - No server required
   - No install required
 
-We identify your unique identity through cache, referer and others, and return a dynamic SVG element.
+<br/>
+
+> We identify your unique identity through cache, referer and others, and return a dynamic SVG element.
 In addition, `views.show` also provides custom SVG styles, for more information, see the [documentation](https://views.show).
 
 <br/>
@@ -24,7 +26,7 @@ In addition, `views.show` also provides custom SVG styles, for more information,
   <img src"https://views.show/svg?key=myblog.com" />
   ```
 
-  <img width="80" height="28" src="https://views.show/svg?key=myblog.com" />
+  &nbsp;&nbsp;&nbsp;&nbsp;<img width="80" height="48" src="https://views.show/svg?key=myblog.com" />
 
 <br/>
 
