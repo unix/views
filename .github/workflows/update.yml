@@ -1,4 +1,4 @@
-name: Publish
+name: update_domains
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
       - 'master'
 
 jobs:
-  publish:
+  update:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
