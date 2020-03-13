@@ -22,7 +22,7 @@ module.exports = async(req, res) => {
     const { viewsCount, pagesCount, hasItem } = await client.getViews(name, key)
     const limitExcceeded = utils.checkLimitExcceeded(res, pagesCount)
     utils.setReadTime(req, res, key)
-    utils.setViewsStatus(res, 'ok')
+    utils.setViewsStatus(res, hasItem ? 'ok' : 'unallowed')
     utils.ok(req, res, viewsCount)
 
     if (!hasItem) {
