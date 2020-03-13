@@ -1,3 +1,4 @@
 domains:
   - views.show
   - docs.views.show
+  - unix.bio
