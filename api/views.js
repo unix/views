@@ -7,11 +7,10 @@ module.exports = async(req, res) => {
   utils.setViewsStatus(res, 'bad')
   if (!req.headers.referer || !req.query.key) return utils.ok(req, res)
 
-  let name, key, isGithub = false
+  let name, key
   try {
     const { origin } = new URL(req.headers.referer)
     if (!origin) return utils.ok(req, res)
-    isGithub = origin === 'https://github.com'
     name = utils.md5(origin)
     key = utils.md5(req.query.key)
   } catch (e) {
@@ -26,13 +25,15 @@ module.exports = async(req, res) => {
     utils.setViewsStatus(res, 'ok')
     utils.ok(req, res, viewsCount)
 
-    if (!hasItem) return await client.createViewsItem(name, key)
+    if (!hasItem) {
+      // return await client.createViewsItem(name, key)
+      return
+    }
     if (utils.onRead(req, key)) return
     
     // unlimited requests from GitHub
-    if (isGithub || !limitExcceeded) {
-      await client.updateViewsCount(name, key, viewsCount)
-    }
+    if (!limitExcceeded) return
+    await client.updateViewsCount(name, key, viewsCount)
   } catch (e) {
     console.log(`Error connecting to Dynamo: ${e}`)
     if (!res.writableEnded) {
