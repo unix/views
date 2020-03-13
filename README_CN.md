@@ -14,7 +14,7 @@
 <br/>
 
 > 我们通过 `cache` / `referer` 等方式来鉴别你和你的页面唯一性，同时返回为请求返回一个动态 SVG 元素以记录和显示浏览量。
-> 除此之外，`views.show` 还提供定制 SVG (数字) 的样式，更多相关信息，可以参见 [文档](https://views.show)。
+> 除此之外，`views.show` 还提供定制 SVG (数字) 的样式，更多相关信息，可以参见 [文档](https://docs.views.show)。
 
 <br/>
 
@@ -31,7 +31,7 @@
 
 <br/>
 
-**[在文档中了解更多](https://views.show)**
+**[在文档中了解更多](https://docs.views.show)**
 
 <br/>
 

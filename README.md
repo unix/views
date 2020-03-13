@@ -16,7 +16,7 @@ Show page views without server.
 <br/>
 
 > We identify your unique identity through cache, referer and others, and return a dynamic SVG element.
-In addition, `views.show` also provides custom SVG styles, for more information, see the [documentation](https://views.show).
+In addition, `views.show` also provides custom SVG styles, for more information, see the [documentation](https://docs.views.show).
 
 <br/>
 
@@ -33,7 +33,7 @@ In addition, `views.show` also provides custom SVG styles, for more information,
 
 <br/>
 
-**[Learn more at Documentation](https://views.show)**
+**[Learn more at Documentation](https://docs.views.show)**
 
 <br/>
 
