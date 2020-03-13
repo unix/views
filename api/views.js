@@ -31,8 +31,7 @@ module.exports = async(req, res) => {
     }
     if (utils.onRead(req, key)) return
     
-    // unlimited requests from GitHub
-    if (!limitExcceeded) return
+    if (limitExcceeded) return
     await client.updateViewsCount(name, key, viewsCount)
   } catch (e) {
     console.log(`Error connecting to Dynamo: ${e}`)
