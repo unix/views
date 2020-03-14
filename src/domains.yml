@@ -2,3 +2,5 @@ domains:
   - views.show
   - docs.views.show
   - unix.bio
+  - zexo.dev
+  - blog.aquariuslt.com
