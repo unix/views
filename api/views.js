@@ -3,7 +3,11 @@ const utils = require('../lib/utils')
 
 
 module.exports = async(req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', req.headers.origin)
+  if (req.query.json && req.headers.origin) {
+    res.setHeader('Access-Control-Allow-Origin', req.headers.origin)
+  }
+  const contentType = req.query.json ? 'application/json' : 'image/svg+xml'
+  res.setHeader('Content-Type', contentType)
   
   utils.setViewsStatus(res, 'bad')
   if (!req.headers.referer || !req.query.key) return utils.ok(req, res)
