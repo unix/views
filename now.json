@@ -9,11 +9,15 @@
     {
       "source": "/svg",
       "destination": "/api/views"
+    },
+    {
+      "source": "/json",
+      "destination": "/api/views?json=1"
     }
   ],
   "headers": [
     {
-      "source": "/api/views",
+      "source": "/svg",
       "headers" : [
         {
           "key" : "Content-Type",
@@ -22,6 +26,35 @@
         {
           "key" : "Cache-Control",
           "value" : "public, max-age=0, must-revalidate"
+        },
+        {
+          "key": "Access-Control-Allow-Credentials",
+          "value": "true"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Origin, X-Auth-Token, Accept, Body"
+        }
+      ]
+    },
+    {
+      "source": "/json(.*)",
+      "headers" : [
+        {
+          "key" : "Content-Type",
+          "value" : "application/json"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "OPTIONS, GET"
+        },
+        {
+          "key": "Access-Control-Allow-Credentials",
+          "value": "true"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Origin, X-Auth-Token, Accept, Body"
         }
       ]
     }

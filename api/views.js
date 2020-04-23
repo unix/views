@@ -3,7 +3,8 @@ const utils = require('../lib/utils')
 
 
 module.exports = async(req, res) => {
-  res.setHeader('content-type', 'image/svg+xml')
+  res.setHeader('Access-Control-Allow-Origin', req.headers.origin)
+  
   utils.setViewsStatus(res, 'bad')
   if (!req.headers.referer || !req.query.key) return utils.ok(req, res)
 
@@ -29,7 +30,8 @@ module.exports = async(req, res) => {
       // return await client.createViewsItem(name, key)
       return
     }
-    if (utils.onRead(req, key) || req.query.readonly) return
+    const readonly = req.query.readonly || req.query.json
+    if (utils.onRead(req, key) || readonly) return
     
     if (limitExcceeded) return
     await client.updateViewsCount(name, key, viewsCount)
