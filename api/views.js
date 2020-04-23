@@ -34,8 +34,7 @@ module.exports = async(req, res) => {
       // return await client.createViewsItem(name, key)
       return
     }
-    const readonly = req.query.readonly || req.query.json
-    if (utils.onRead(req, key) || readonly) return
+    if (utils.onRead(req, key) || req.query.readonly) return
     
     if (limitExcceeded) return
     await client.updateViewsCount(name, key, viewsCount)
