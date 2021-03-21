@@ -1,0 +1,12 @@
+.git
+.idea
+.vscode
+hooks
+.env
+docker-compose.yml
+node_modules
+.env.local
+.env.*.local
+.npmignore
+.dockerignore
+.gitignore
