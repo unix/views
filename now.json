@@ -18,14 +18,14 @@
   "headers": [
     {
       "source": "/svg(.*)",
-      "headers" : [
+      "headers": [
         {
-          "key" : "Content-Type",
-          "value" : "image/svg+xml"
+          "key": "Content-Type",
+          "value": "image/svg+xml"
         },
         {
-          "key" : "Cache-Control",
-          "value" : "public, max-age=0, must-revalidate"
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
         },
         {
           "key": "Access-Control-Allow-Origin",
@@ -43,10 +43,10 @@
     },
     {
       "source": "/json(.*)",
-      "headers" : [
+      "headers": [
         {
-          "key" : "Content-Type",
-          "value" : "application/json"
+          "key": "Content-Type",
+          "value": "application/json"
         },
         {
           "key": "Access-Control-Allow-Methods",
@@ -64,7 +64,6 @@
     }
   ],
   "env": {
-    "AWS_ACCESS_ID": "@views-aws-access-id",
-    "AWS_ACCESS_SECRET_KEY": "@views-aws-secret-key"
+    "DATABASE_URL": "@postgres_url_views"
   }
 }
