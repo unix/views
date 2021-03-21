@@ -6,7 +6,7 @@ Show page views without the server.
 
 <br/>
 
-### What is `views`
+### What
 
 - Display page views dynamically now.
 - Easy to set up and use by anyone.
@@ -33,8 +33,6 @@ Show page views without the server.
 <br/>
 
 **[Learn more at Documentation](https://views-docs.unix.bio)**
-
-<br/>
 
 ### Additional instructions
 
