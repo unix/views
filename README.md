@@ -6,11 +6,10 @@ Show page views without the server.
 
 <br/>
 
-### What is
+### What is `views`
 
-- Display page views dynamically now
-- No server required, no install required
-- Free, just use
+- Display page views dynamically now.
+- Easy to set up and use by anyone.
 - Support `svg` / `react hooks`
 
 <br/>
@@ -39,7 +38,7 @@ Show page views without the server.
 
 ### Additional instructions
 
-For performance and cost reasons， `views` can only be displayed **on your own website**,
+For performance and cost reasons,`views` can only be displayed **on your own website**,
 it can't work in GitHub(README.md) NPM or other places. You can also donate this project to help me do better.
 
 <br/>
