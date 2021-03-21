@@ -59,11 +59,11 @@ export const createPage = async (
   }
 }
 
-export const updatePage = async (key: string, count: number): Promise<void> => {
+export const updatePage = async (key: string): Promise<void> => {
   await prisma.page.update({
     where: { name: key },
     data: {
-      count,
+      count: { increment: 1 },
     },
   })
 }

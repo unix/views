@@ -25,7 +25,7 @@ module.exports = async (req: VercelRequest, res: VercelResponse) => {
     }
     utils.ok(req, res, count)
 
-    await services.updatePage(key, count)
+    await services.updatePage(key)
   } catch (e) {
     console.log(`referer: ${req.headers.referer}, key: ${req.query.key}\n`, e)
     if (res.writableEnded) return
