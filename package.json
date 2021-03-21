@@ -1,0 +1,25 @@
+{
+  "name": "views",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:unix/views.git",
+  "author": "unix <unix.bio@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "vercel dev",
+    "vercel-build": "prisma migrate deploy",
+    "up": "POSTGRES_PORT=5432 docker-compose up -d"
+  },
+  "prettier": "@geist-ui/prettier-config",
+  "devDependencies": {
+    "@geist-ui/prettier-config": "^1.0.1",
+    "@types/node": "^13.9.0",
+    "@vercel/node": "^1.9.1",
+    "prettier": "^2.2.1",
+    "prisma": "2.19.0"
+  },
+  "dependencies": {
+    "@prisma/client": "2.19.0",
+    "aws-sdk": "^2.637.0"
+  }
+}

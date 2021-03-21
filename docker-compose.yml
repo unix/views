@@ -1,0 +1,15 @@
+version: '3.3'
+
+services:
+  restapi.postgres:
+    image: postgres:13
+    volumes:
+      - db_data:/var/lib/postgres-views
+    restart: always
+    ports:
+      - ${POSTGRES_PORT}:${POSTGRES_PORT}
+    env_file:
+      - ./.env
+
+volumes:
+  db_data: {}
