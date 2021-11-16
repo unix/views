@@ -20,6 +20,6 @@
   },
   "dependencies": {
     "@prisma/client": "2.19.0",
-    "aws-sdk": "^2.637.0"
+    "aws-sdk": "^2.814.0"
   }
 }
