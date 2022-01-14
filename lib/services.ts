@@ -36,7 +36,7 @@ export const createPageByViewId = async ({
     return {
       limitExceeded: true,
     }
-  await prisma.view.upsert({
+  const r = await prisma.view.upsert({
     where: { name: viewId },
     update: {
       host,
