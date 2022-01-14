@@ -1,34 +1,35 @@
 import { VercelRequest, VercelResponse } from '@vercel/node'
-import * as utils from '../lib/utils'
-import * as services from '../lib/services'
+import * as _ from '../lib/utils'
+import { findPageByMD5Key, updatePageByMD5Key, createPageByViewId } from '../lib/services'
 
 module.exports = async (req: VercelRequest, res: VercelResponse) => {
-  utils.setAllowOrigin(req, res)
-  utils.setContentType(req, res)
-  utils.setViewsStatus(res, 'bad')
-  if (!req.headers.referer || !req.query.key) return utils.ok(req, res)
+  _.setAllowOrigin(req, res)
+  _.setContentType(req, res)
+  _.setViewsStatus(res, 'bad')
+  if (!req.headers.referer || !req.query.key) return _.ok(req, res)
 
   try {
-    const { viewId, key } = utils.getViewsKeys(req)
-    const { hasPage, count } = await services.findPage(viewId, key)
-    utils.setReadTime(req, res, key)
-    utils.setViewsStatus(res, 'ok')
+    const currentView = _.getViewsKeys(req)
+    const { viewId, key } = currentView
+    const { hasPage, count } = await findPageByMD5Key(viewId, key)
+    _.setReadTime(req, res, key)
+    _.setViewsStatus(res, 'ok')
 
-    if (utils.onRead(req, key) || req.query.readonly) return utils.ok(req, res, count)
+    if (_.onRead(req, key) || req.query.readonly) return _.ok(req, res, count)
 
     if (!hasPage) {
-      const { limitExcceeded } = await services.createPage(viewId, key)
-      if (limitExcceeded) {
-        utils.setViewsStatus(res, 'limit-exceeded')
+      const { limitExceeded } = await createPageByViewId(currentView)
+      if (limitExceeded) {
+        _.setViewsStatus(res, 'limit-exceeded')
       }
-      return utils.ok(req, res, 1)
+      return _.ok(req, res, 1)
     }
-    utils.ok(req, res, count)
+    _.ok(req, res, count)
 
-    await services.updatePage(key)
+    await updatePageByMD5Key(key)
   } catch (e) {
     console.log(`referer: ${req.headers.referer}, key: ${req.query.key}\n`, e)
     if (res.writableEnded) return
-    return utils.ok(req, res)
+    return _.ok(req, res)
   }
 }

@@ -39,12 +39,14 @@ export const setContentType = (req: VercelRequest, res: VercelResponse): void =>
   res.setHeader('Content-Type', contentType)
 }
 
-export const getViewsKeys = (
-  req: VercelRequest,
-): {
+export type RequestViewer = {
   viewId: string
   key: string
-} => {
+  host?: string
+  page?: string
+}
+
+export const getViewsKeys = (req: VercelRequest): RequestViewer => {
   let { hostname } = new URL(req.headers.referer)
   if (!hostname) throw new Error('not found origin')
 
@@ -56,6 +58,8 @@ export const getViewsKeys = (
   return {
     viewId,
     key,
+    host: `${hostname}`,
+    page: `${req.query.key}`,
   }
 }
 

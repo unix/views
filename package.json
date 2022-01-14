@@ -8,18 +8,17 @@
   "scripts": {
     "start": "vercel dev",
     "vercel-build": "prisma migrate deploy",
-    "up": "POSTGRES_PORT=5432 docker-compose up -d"
+    "up": "docker compose up -d"
   },
   "prettier": "@geist-ui/prettier-config",
   "devDependencies": {
     "@geist-ui/prettier-config": "^1.0.1",
-    "@types/node": "^13.9.0",
-    "@vercel/node": "^1.9.1",
-    "prettier": "^2.2.1",
-    "prisma": "2.19.0"
+    "@types/node": "^17.0.8",
+    "@vercel/node": "^1.12.1",
+    "prettier": "^2.5.1",
+    "prisma": "^3.8.0"
   },
   "dependencies": {
-    "@prisma/client": "2.19.0",
-    "aws-sdk": "^2.637.0"
+    "@prisma/client": "^3.8.0"
   }
 }

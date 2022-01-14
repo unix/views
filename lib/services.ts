@@ -1,8 +1,9 @@
 import { PrismaClient } from '@prisma/client'
+import { RequestViewer } from './utils'
 
 const prisma = new PrismaClient()
 
-export const findPage = async (
+export const findPageByMD5Key = async (
   viewId: string,
   key: string,
 ): Promise<{
@@ -22,10 +23,12 @@ export const findPage = async (
   }
 }
 
-export const createPage = async (
-  viewId: string,
-  key: string,
-): Promise<{ limitExcceeded: boolean }> => {
+export const createPageByViewId = async ({
+  viewId,
+  key,
+  host,
+  page,
+}: RequestViewer): Promise<{ limitExcceeded: boolean }> => {
   const count = await prisma.page.count({ where: { name: key } })
   if (count > 100)
     return {
@@ -48,6 +51,7 @@ export const createPage = async (
           where: { name: key },
           create: {
             name: key,
+            page,
             count: 1,
           },
         },
@@ -59,7 +63,7 @@ export const createPage = async (
   }
 }
 
-export const updatePage = async (key: string): Promise<void> => {
+export const updatePageByMD5Key = async (key: string): Promise<void> => {
   await prisma.page.update({
     where: { name: key },
     data: {
