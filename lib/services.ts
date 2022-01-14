@@ -23,20 +23,23 @@ export const findPageByMD5Key = async (
   }
 }
 
+// export const
+
 export const createPageByViewId = async ({
   viewId,
   key,
   host,
   page,
-}: RequestViewer): Promise<{ limitExcceeded: boolean }> => {
+}: RequestViewer): Promise<{ limitExceeded: boolean }> => {
   const count = await prisma.page.count({ where: { name: key } })
   if (count > 100)
     return {
-      limitExcceeded: true,
+      limitExceeded: true,
     }
   await prisma.view.upsert({
     where: { name: viewId },
     update: {
+      host,
       pages: {
         create: {
           name: key,
@@ -46,6 +49,7 @@ export const createPageByViewId = async ({
     },
     create: {
       name: viewId,
+      host,
       pages: {
         connectOrCreate: {
           where: { name: key },
@@ -59,7 +63,7 @@ export const createPageByViewId = async ({
     },
   })
   return {
-    limitExcceeded: false,
+    limitExceeded: false,
   }
 }
 
