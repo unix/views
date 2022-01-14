@@ -43,6 +43,7 @@ export const createPageByViewId = async ({
       pages: {
         create: {
           name: key,
+          page,
           count: 1,
         },
       },
