@@ -1,6 +1,6 @@
 {
   "name": "@unix/views",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "browser": "dist/index.min.js",
