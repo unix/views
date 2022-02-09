@@ -25,15 +25,17 @@ const getViews = async (key: string, readOnly: boolean, unique: boolean) => {
 export type ViewsOptions = {
   readOnly?: boolean
   unique?: boolean
+  disabled?: boolean
 }
 
 const useViews = (key: string, options: ViewsOptions = {}) => {
   const [count, setCount] = useState<number>(0)
   const [updated, setUpdated] = useState<boolean>(false)
-  const { readOnly = false, unique = false } = options
+  const { readOnly = false, unique = false, disabled = false } = options
 
   useEffect(() => {
     let unmount = false
+    if (disabled) return
     ;(async () => {
       const res = await getViews(key, readOnly, unique)
       if (unmount) return
@@ -43,7 +45,7 @@ const useViews = (key: string, options: ViewsOptions = {}) => {
     return () => {
       unmount = true
     }
-  }, [])
+  }, [disabled])
 
   return [count, updated]
 }
